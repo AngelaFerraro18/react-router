@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 function SinglePost() {
@@ -7,13 +7,20 @@ function SinglePost() {
     const urlApi = 'https://jsonplaceholder.typicode.com/posts';
 
     const [postList, setPostList] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         console.log('Ho caricato la pagina')
+        setLoading(true);
 
         axios.get(`${urlApi}/${id}`)
-            .then(res => setPostList(res.data))
-            .catch(err => console.log(err))
+            .then(res => {
+                setTimeout(() => {
+                    setPostList(res.data);
+                    setLoading(false);
+                }, 300);
+            })
+            .catch(err => console.error(err))
 
     }, [])
 
@@ -47,12 +54,17 @@ function SinglePost() {
         }
     }
 
+    if (loading) {
+        return <p>Caricamento in corso...</p>
+    }
+
     return (
         <div>
             <h1>{postList.title} - {id}</h1>
             <p>{postList.body}</p>
             <button onClick={PrevPost} disabled={id <= 1}>Post precedente</button>
             <button onClick={NextPost} disabled={id >= 100}>Post successivo</button>
+            <Link to='/post-list'>Torna alla lista</Link>
         </div>
     )
 
