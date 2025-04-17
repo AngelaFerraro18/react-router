@@ -3,6 +3,7 @@ import Home from "./pages/Home"
 import PostList from "./pages/PostList"
 import ChiSiamo from "./pages/ChiSiamo"
 import DefaultLayout from "./layouts/DefaultLayout"
+import SinglePost from "./pages/SinglePost"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path='/' element={<Home />} />
             <Route path='/post-list' element={<PostList />} />
+            <Route path='/post-list/:id' element={<SinglePost />} />
             <Route path='/chi-siamo' element={<ChiSiamo />} />
           </Route>
         </Routes>
