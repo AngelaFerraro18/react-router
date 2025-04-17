@@ -20,7 +20,7 @@ function SinglePost() {
                     setLoading(false);
                 }, 300);
             })
-            .catch(err => console.error(err))
+            .catch(err => { console.error(err) })
 
     }, [])
 
