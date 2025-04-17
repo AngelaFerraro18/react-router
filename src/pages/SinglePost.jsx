@@ -59,7 +59,7 @@ function SinglePost() {
     }
 
     return (
-        <div>
+        <div className="single-post">
             <h1>{postList.title} - {id}</h1>
             <p>{postList.body}</p>
             <button onClick={PrevPost} disabled={id <= 1}>Post precedente</button>
