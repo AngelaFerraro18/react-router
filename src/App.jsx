@@ -4,6 +4,7 @@ import PostList from "./pages/PostList"
 import ChiSiamo from "./pages/ChiSiamo"
 import DefaultLayout from "./layouts/DefaultLayout"
 import SinglePost from "./pages/SinglePost"
+import NotFound from "./pages/NotFound"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Route path='/post-list' element={<PostList />} />
             <Route path='/post-list/:id' element={<SinglePost />} />
             <Route path='/chi-siamo' element={<ChiSiamo />} />
+            <Route path='*' element={<NotFound />} />
           </Route>
         </Routes>
 
