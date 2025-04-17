@@ -22,7 +22,7 @@ function SinglePost() {
             })
             .catch(err => { console.error(err) })
 
-    }, [])
+    }, [id]) //--> aggiunto l'id alla dipendenza per visualizzare il post scelto
 
     //creo una variabile dove vado a salvare useNavigate
     const navigate = useNavigate();
